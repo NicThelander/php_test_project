@@ -1,0 +1,22 @@
+requirements section:
+php
+php mysqli
+Your systems version of mysql
+
+make sure mysqli extension isn't commented out in /etc/php/php.ini
+
+created the db in db_setup, which is called from index.php so that it won't require a script for a specific system.
+
+
+for linux
+
+sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+
+sudo systemctl enable mysqld
+sudo systemctl start mysqld
+
+sudo mysql_secure_installation (then go through standard set up procedure)
+
+once all of this is set up just run "php -S localhost:8000" while in
+the folder and the php server will set up, the connect to localhost:8000
+in a browser to test it out
