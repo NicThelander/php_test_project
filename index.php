@@ -2,11 +2,11 @@
 	include("includes/a_config.php");
 	include("Model/db_setup.php");
 
-	$conn = new mysqli("localhost", "admin", "password");
+	$conn = new mysqli("localhost", "root", "password");
 
 	$db_setup = new db_setup(); 
 	$db_setup->setup($conn);
-	$conn2 = new mysqli("localhost", "admin", "password", "nicDB");
+	$conn2 = new mysqli("localhost", "root", "password", "nicDB");
 	$db_setup->populate($conn2);
 
 	mysqli_close($conn);

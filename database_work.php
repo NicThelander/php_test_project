@@ -15,7 +15,7 @@
 		<h2>DB pull</h2>
 
 		<?php include("includes/../Model/db_pull.php");
-		$conn = new mysqli("localhost", "admin", "password", "nicDB");
+		$conn = new mysqli("localhost", "root", "password", "nicDB");
 		$db_pull = new db_pull($conn);
 		$db_pull->pullDB();
 		?>
