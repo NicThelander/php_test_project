@@ -23,4 +23,5 @@ in a browser to test it out
 
 
 for windows
-make sure php and mariadb are installed
+make sure php and mariadb are installed and that the username for mariadb is root and password is password,
+otherwise just change the details in index.php and database_work.php to yours, this should work for mysql too but untested.
