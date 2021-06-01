@@ -3,9 +3,9 @@
 	include("Model/db_setup.php");
 
 	$conn = new mysqli("localhost", "root", "password");
-
 	$db_setup = new db_setup(); 
 	$db_setup->setup($conn);
+	
 	$conn2 = new mysqli("localhost", "root", "password", "nicDB");
 	$db_setup->populate($conn2);
 

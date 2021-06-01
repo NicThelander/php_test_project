@@ -18,6 +18,7 @@
 		$conn = new mysqli("localhost", "root", "password", "nicDB");
 		$db_pull = new db_pull($conn);
 		$db_pull->pullDB();
+		mysqli_close($conn)
 		?>
 
 	</div>

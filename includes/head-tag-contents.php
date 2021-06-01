@@ -4,7 +4,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 <?php } ?>
-<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="../images/php_image.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <style>
 	#main-content {
