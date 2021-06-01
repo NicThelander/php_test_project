@@ -18,6 +18,7 @@ class db_setup {
         // $this->logs->console_log("test");
         // $this->conn = new mysqli("localhost", "admin", "password",);
         // $this->database = $database;
+        $this->database = 'nicDB';
         $this->logs = new logs();
         $this->logs->console_log("test");
     }
