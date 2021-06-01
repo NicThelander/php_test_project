@@ -1,12 +1,18 @@
 <?php
-$ch = curl_init();
+class curl_function
+// This function will perform a basic curl on the url passed to it
+{
 
-$url = 'http://icanhazip.com/';
+    function curl_the_url($url)
+    {
+        $ch = curl_init();
 
-curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $url);
 
-$result = curl_exec($ch);
+        $result = curl_exec($ch);
 
-echo $result;
+        echo $result;
 
-var_dump($result);
+        var_dump($result);
+    }
+}

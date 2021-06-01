@@ -1,4 +1,5 @@
 <?php
+// performs a JavaScript console.log() in an easy to use manner
 
 class logs
 {

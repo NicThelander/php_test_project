@@ -4,8 +4,14 @@
 
 <head>
 	<?php include("includes/head-tag-contents.php"); ?>
-	<?php include("includes/../Model/db_setup.php"); ?>
-	<?php include("includes/../Model/db_populate.php"); ?>
+	<?php include("includes/../Model/db_setup.php");
+	$db_setup = new db_setup();
+	$db_setup->setUpDB();
+	?>
+	<?php include("includes/../Model/db_populate.php");
+	$db_populate = new db_populate("nicDB");
+	$db_populate->popDB();
+	?>
 
 </head>
 

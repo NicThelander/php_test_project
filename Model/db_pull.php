@@ -1,21 +1,39 @@
 <?php
+// pulls the values from the database
 
-$servername = "localhost";
-$database = "nicDB";
-$username = "admin";
-$password = "password";
+class db_pull
+{
 
-$conn = mysqli_connect($servername, $username, $password, $database);
+    private $database;
+    private $servername;
+    private $username;
+    private $password;
+    public $conn;
 
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    function __construct($conn)
+    {
+        $this->servername = "localhost";
+        $this->database = "nicDB";
+        $this->username = "admin";
+        $this->password = "password";
+        $this->conn = $conn;
+    }
+
+    public function pullDB()
+    {
+        // $conn = mysqli_connect($this->servername, $this->username, $this->password, $this->database);
+
+        if (!$this->conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
+
+        $sql_req = "SELECT name, email, number FROM Testing";
+        $result = $this->conn->query($sql_req);
+        while ($row = $result->fetch_assoc()) {
+            echo "name: " . $row["name"] . ", email: " . $row["email"] . ", number: " . $row["number"] . "<br>";
+        }
+
+        mysqli_close($this->conn);
+    }
 }
-
-
-$sql_req = "SELECT name, email, number FROM Testing";
-$result = $conn->query($sql_req);
-while ($row = $result->fetch_assoc()) {
-    echo "name: " . $row["name"] . ", email: " . $row["email"] . ", number: " . $row["number"] . "<br>";
-}
-
-mysqli_close($conn);

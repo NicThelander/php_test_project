@@ -14,7 +14,10 @@
 	<div class="container" id="main-content">
 		<h2>DB pull</h2>
 
-		<?php include("includes/../Model/db_pull.php") ?>
+		<?php include("includes/../Model/db_pull.php");
+		$db_pull = new db_pull($conn);
+		$db_pull->pullDB();
+		?>
 
 	</div>
 
