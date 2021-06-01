@@ -20,3 +20,7 @@ sudo mysql_secure_installation (then go through standard set up procedure)
 once all of this is set up just run "php -S localhost:8000" while in
 the folder and the php server will set up, the connect to localhost:8000
 in a browser to test it out
+
+
+for windows
+make sure php and mariadb are installed
