@@ -5,27 +5,33 @@ include('./util/logs.php');
 
 class db_setup {
 
-    private $conn;
+    
     private $database;
     private $logs;
 
-    function __construct(&$conn, $database, &$logs = new logs()) {
-        $this->conn = $conn;
-        $this->database = $database;
-        $this->logs = $logs;
+    function __construct() { // this is line 12 afterall
+        // $this->conn = $conn;
+        // $this->database = $database;
+        // $this->logs = $logs;
+        // $this->logs->console_log("test");
+        // $this->conn = new mysqli("localhost", "admin", "password",);
+        // $this->database = $database;
+        $this->logs = new logs();
+        $this->logs->console_log("test");
     }
+    
 
-
-    function setup(){
+    function setup($conn){
+        
         $sql = "CREATE DATABASE IF NOT EXISTS " . $this->database;
-        if ($this->conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE) {
             $this->logs->console_log("Db created successfully");
         } else {
             $this->logs->console_log("Error creating database:  {$conn->error}");
         }
     }
-    public function populate() {
-
+    public function populate($conn2) {
+        // $this->conn =
         $sql_create_table = "CREATE TABLE IF NOT EXISTS Testing (
             name VARCHAR(100),
             email VARCHAR(100),
@@ -33,14 +39,14 @@ class db_setup {
             UNIQUE(name, email, number)
             );
             ";
-        if ($this->conn->query($sql_create_table) === TRUE) {
+        if ($conn2->query($sql_create_table) === TRUE) {
             for ($x = 0; $x <= 9; $x++) {
 
                 $sql = "INSERT IGNORE INTO Testing (name, email, number) VALUES ('Test{$x}', 'test@testing.com{$x}', 'xxx-xxx-xxxx{$x}')";
-                if (mysqli_query($this->conn, $sql)) {
+                if (mysqli_query($conn2, $sql)) {
                     $this->logs->console_log("Test row populated{$x}");
                 } else {
-                    $this->logs->console_log("Error: " . $sql . "<br>" . mysqli_error($this->conn));
+                    $this->logs->console_log("Error: " . $sql . "<br>" . mysqli_error($conn2));
                 }
             }
         }
