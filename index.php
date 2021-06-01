@@ -4,7 +4,7 @@
 
 	$conn = new mysqli("localhost", "admin", "password");
 
-	$db_setup = new db_setup(); // setup needs it for CREATE DATABASE
+	$db_setup = new db_setup(); 
 	$db_setup->setup($conn);
 	$conn2 = new mysqli("localhost", "admin", "password", "nicDB");
 	$db_setup->populate($conn2);

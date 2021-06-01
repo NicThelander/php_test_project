@@ -9,7 +9,9 @@ class db_setup {
     private $database;
     private $logs;
 
-    function __construct() { // this is line 12 afterall
+    function __construct() { // was testing out passing args in the construct but decided to rather do
+        // it by function so I would only need one file for the set up
+        
         // $this->conn = $conn;
         // $this->database = $database;
         // $this->logs = $logs;
@@ -31,7 +33,7 @@ class db_setup {
         }
     }
     public function populate($conn2) {
-        // $this->conn =
+     
         $sql_create_table = "CREATE TABLE IF NOT EXISTS Testing (
             name VARCHAR(100),
             email VARCHAR(100),
